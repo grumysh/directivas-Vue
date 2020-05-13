@@ -9,6 +9,7 @@ const app = new Vue({
       html: '<p>HTML insertado por v-html</p>',
       msg: 'Texto insertado por v-text',
       showPrices: true,
+      price: 1200
     }
   },
   methods: {

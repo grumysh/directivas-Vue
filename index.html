@@ -42,10 +42,22 @@
         </td>
       </tr>
       <tr>
-        <td>v-bind</td>
+        <td ROWSPAN="3">v-bind</td>
         <td> Enlaza dinámicamente atributos de un elemento.</td>
         <td> v-bind:src="url" o :alt="name"</td>
         <td><img v-bind:src="img" v-bind:alt="name" /></td>
+      </tr>
+      <tr>
+        <td> Usando v-bind para cambio de clases con comparaciones</td>
+        <td> v-bind:class="changePercent > 0 ? 'green' : 'red'"</td>
+        <td>
+          <p v-bind:class="changePercent > 0 ? 'green' : 'red'">Clases en tiempo real</p>
+      </tr>
+      <tr>
+        <td> Usando v-bind para cambio de clases con Objetos</td>
+        <td> v-bind:class="{orange: changePercent === price, red: changePercent < price, green: changePercent > price}"</td>
+        <td>
+          <p v-bind:class="{orange: changePercent === price, red: changePercent < price, green: changePercent > price}">Clases en tiempo real</p>
       </tr>
       <tr>
         <td>v-if</td>
