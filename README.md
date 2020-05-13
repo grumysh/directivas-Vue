@@ -1,7 +1,8 @@
 # directivas-Vue
 
 Se muestran las directivas de Vue, inspirado en el curso básico de Vue.js de Platzi.
-(Todos sobre directivas)[https://es.vuejs.org/v2/api/#Directivas]
+
+[Todos sobre directivas](https://es.vuejs.org/v2/api/#Directivas)
 
 ### Tecnologías usadas:
 
