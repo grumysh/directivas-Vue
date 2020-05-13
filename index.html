@@ -42,7 +42,7 @@
         </td>
       </tr>
       <tr>
-        <td ROWSPAN="3">v-bind</td>
+        <td ROWSPAN="4">v-bind</td>
         <td> Enlaza dinámicamente atributos de un elemento.</td>
         <td> v-bind:src="url" o :alt="name"</td>
         <td><img v-bind:src="img" v-bind:alt="name" /></td>
@@ -58,7 +58,17 @@
         <td> v-bind:class="{orange: changePercent === price, red: changePercent < price, green: changePercent > price}"</td>
         <td>
           <p v-bind:class="{orange: changePercent === price, red: changePercent < price, green: changePercent > price}">Clases en tiempo real</p>
+        </td>
       </tr>
+      <tr>
+        <td> Usando v-bind para cambio de estilos</td>
+        <td> v-bind:style="{background:color}"</td>
+        <td v-bind:style="{background:'#'+color}">
+          <input type="text" name="color" id="" v-model="color">
+          <p>Ingerese un Hexadecimal para cambiar el color de fondo.</p>
+        </td>
+      </tr>
+
       <tr>
         <td>v-if</td>
         <td>Construye o destruye un elemento de acuerdo a la condición dada.</td>
