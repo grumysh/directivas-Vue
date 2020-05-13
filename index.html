@@ -1,24 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Curso Basico de Vue.js | Platzi</title>
   <link rel="stylesheet" href="./styles.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
+
 <body>
   <div id='app'>
     <!-- Las directivas es la herramienta que nos ofrece Vue para poder manipular el DOM y para poder manipularlo de forma declarativa.-->
-    <img v-bind:src="img" v-bind:alt="name"/>
-    <h1>{{name}}
-      <span v-if="changePercent > 0">:D</span>
-      <span v-else-if="changePercent < 0">D:</span>
-      <span v-else>:|</span>
+    <h1>{{name}}</h1>
+    <p>Las directivas son la herramienta que ofrece Vue para poder manipular el DOM y para poder hacerlo de forma
+      declarativa</p>
 
-    </h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Directiva</th>
+          <th>Significado</th>
+          <th>Sintaxis</th>
+          <th>Resultado</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>v-text</td>
+        <td> Actualiza el textContent del elemento.</td>
+        <td> v-text="msg"</td>
+        <td><span v-text="msg"></span></td>
+      </tr>
+      <tr>
+        <td>v-html</td>
+        <td> Actualiza el innerHTML del elemento. Note que los contenidos son insertados como HTML puro - no serán
+          compilados como pantillas (templates) de Vue</td>
+        <td> v-html="html"</td>
+        <td>
+          <div v-html="html"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>v-bind</td>
+        <td> Enlaza dinámicamente atributos de un elemento.</td>
+        <td> v-bind:src="url" o :alt="name"</td>
+        <td><img v-bind:src="img" v-bind:alt="name" /></td>
+      </tr>
+      <tr>
+        <td>v-if</td>
+        <td>Construye o destruye un elemento de acuerdo a la condición dada.</td>
+        <td>v-if="changePercent > 0"</td>
+        <td ROWSPAN="3">
+          <span v-if="changePercent > 0">:D</span>
+          <span v-else-if="changePercent < 0">:D</span>
+          <span v-else>:|</span>
+        </td>
+      </tr>
+      <tr>
+        <td>v-else-if</td>
+        <td> Equivalente a “v-if”, se usa despues de un “v-if” o “v-else-if”.</td>
+        <td>v-else-if="changePercent < 0"</td>
+      </tr>
+      <tr>
+        <td>v-else</td>
+        <td> Se activa cuando las condiciónes "v-if" o "v-else-if" no se cumplen</td>
+        <td>v-else</td>
+      </tr>
+      <tr>
+        <td>v-show</td>
+        <td> Cambia la propiedad CSS display del elemento basado en las condiciones dadas.</td>
+        <td>v-show="changePercent > 0"</td>
+        <td>
+          <span v-show="changePercent > 0">:D</span>
+        </td>
+      </tr>
+      <tr>
+        <td ROWSPAN="2">v-on</td>
+        <td ROWSPAN="2"> Agrega una escucha de evento (event listener) al elemento. </td>
+        <td>v-on:click="toggleHidePrices" o @click="toggleHidePrices"</td>
+        <td>
+          <button type="button" class="btn btn-success" v-on:click="toggleHidePrices">
+            {{ showPrices ? 'Ocultar Precios': 'Mostrar Precios'}}
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>v-on:mouseover="toggleHidePrices" @mouseout="toggleHidePrices"</td>
+        <td>
+          <span>
+            <img v-on:mouseover="toggleHidePrices" v-on:mouseout="toggleHidePrices" v-bind:src="img"
+              v-bind:alt="name" />
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>v-for</td>
+        <td> Renderiza el elemento o plantilla mutiples veces basado en la fuente de información.</td>
+        <td>v-for="item in items"</td>
+        <td>
+          <ul v-show="showPrices">
+            <li v-for="(price, index) in prices" :key="price">
+              {{index + 1}} - {{price}}
+            </li>
+          </ul>
+        </td>
+      </tr>
+      
+    </table>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="app.js"></script>
 </body>
+
 </html>
