@@ -14,9 +14,21 @@
 <body>
   <div id='app' class="container">
     <!-- Las directivas es la herramienta que nos ofrece Vue para poder manipular el DOM y para poder manipularlo de forma declarativa.-->
-    <h1>{{name}}</h1>
+    <h1>{{title}}</h1>
     <p>Las directivas son la herramienta que ofrece Vue para poder manipular el DOM y para poder hacerlo de forma
       declarativa.</p>
+    <br>
+    <div class="row">
+      <div class="col">
+        <input type="text" name="color" id="" v-model="changePercent" class="form-control">
+        <p>Input que cambia el valor para la variable 'changePercent'</p>
+      </div>
+      <div class="col">
+        <input type="text" name="color" id="" v-model="price" class="form-control">
+        <p>Input que cambia el valor para la variable 'price'</p>
+      </div>
+    </div>
+    <br>
     <table class="table">
       <thead class="thead-dark">
         <tr>
@@ -27,13 +39,17 @@
         </tr>
       </thead>
       <tr>
-        <td>v-text</td>
+        <td>
+          <h5>v-text</h5>
+        </td>
         <td> Actualiza el textContent del elemento.</td>
         <td> v-text="msg"</td>
         <td><span v-text="msg"></span></td>
       </tr>
       <tr>
-        <td>v-html</td>
+        <td>
+          <h5>v-html</h5>
+        </td>
         <td> Actualiza el innerHTML del elemento. Note que los contenidos son insertados como HTML puro - no serán
           compilados como pantillas (templates) de Vue</td>
         <td> v-html="html"</td>
@@ -42,13 +58,40 @@
         </td>
       </tr>
       <tr>
-        <td>v-bind</td>
+        <td ROWSPAN="4">
+          <h5>v-bind</h5>
+        </td>
         <td> Enlaza dinámicamente atributos de un elemento.</td>
         <td> v-bind:src="url" o :alt="name"</td>
         <td><img v-bind:src="img" v-bind:alt="name" /></td>
       </tr>
       <tr>
-        <td>v-if</td>
+        <td> Usando v-bind para cambio de clases con comparaciones</td>
+        <td> v-bind:class="changePercent > 0 ? 'green' : 'red'"</td>
+        <td>
+          <p v-bind:class="changePercent > 0 ? 'green' : 'red'">Clases en tiempo real</p>
+      </tr>
+      <tr>
+        <td> Usando v-bind para cambio de clases con Objetos</td>
+        <td> v-bind:class="{orange: changePercent === price, red: changePercent < price, green: changePercent> price}"
+        </td>
+        <td>
+          <p v-bind:class="{orange: changePercent === price, red: changePercent < price, green: changePercent > price}">
+            Clases en tiempo real</p>
+        </td>
+      </tr>
+      <tr>
+        <td> Usando v-bind para cambio de estilos</td>
+        <td> v-bind:style="{background:color}"</td>
+        <td v-bind:style="{background:'#'+color}">
+          <input type="text" name="color" id="" v-model="color" class="form-control">
+          <p>Ingerese un Hexadecimal para cambiar el color de fondo.</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h5>v-if</h5>
+        </td>
         <td>Construye o destruye un elemento de acuerdo a la condición dada.</td>
         <td>v-if="changePercent > 0"</td>
         <td ROWSPAN="3">
@@ -58,17 +101,23 @@
         </td>
       </tr>
       <tr>
-        <td>v-else-if</td>
+        <td>
+          <h5>v-else-if</h5>
+        </td>
         <td> Equivalente a “v-if”, se usa despues de un “v-if” o “v-else-if”.</td>
         <td>v-else-if="changePercent < 0"</td>
       </tr>
       <tr>
-        <td>v-else</td>
+        <td>
+          <h5>v-else</h5>
+        </td>
         <td> Se activa cuando las condiciónes "v-if" o "v-else-if" no se cumplen</td>
         <td>v-else</td>
       </tr>
       <tr>
-        <td>v-show</td>
+        <td>
+          <h5>v-show</h5>
+        </td>
         <td> Cambia la propiedad CSS display del elemento basado en las condiciones dadas.</td>
         <td>v-show="changePercent > 0"</td>
         <td>
@@ -76,7 +125,20 @@
         </td>
       </tr>
       <tr>
-        <td ROWSPAN="2">v-on</td>
+        <td>
+          <h5>v-model</h5>
+        </td>
+        <td>Crea un enlace bidireccional (two way binding) en un elemento de formulario o componente.</td>
+        <td>v-model="inputText"</td>
+        <td>
+          <input type="text" name="color" id="" v-model="inputText" placeholder="InputText" class="form-control">
+          <p>'InputText' es igual a: {{inputText}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td ROWSPAN="2">
+          <h5>v-on</h5>
+        </td>
         <td ROWSPAN="2"> Agrega una escucha de evento (event listener) al elemento. </td>
         <td>v-on:click="toggleHidePrices" o @click="toggleHidePrices"</td>
         <td>
@@ -95,7 +157,9 @@
         </td>
       </tr>
       <tr>
-        <td>v-for</td>
+        <td>
+          <h5>v-for</h5>
+        </td>
         <td> Renderiza el elemento o plantilla mutiples veces basado en la fuente de información.</td>
         <td>v-for="item in items"</td>
         <td>

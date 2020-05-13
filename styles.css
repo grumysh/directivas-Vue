@@ -52,3 +52,7 @@ button {
 span {
   cursor: pointer;
 }
+
+td {
+  vertical-align:middle !important;
+}
