@@ -14,9 +14,21 @@
 <body>
   <div id='app' class="container">
     <!-- Las directivas es la herramienta que nos ofrece Vue para poder manipular el DOM y para poder manipularlo de forma declarativa.-->
-    <h1>{{name}}</h1>
+    <h1>{{title}}</h1>
     <p>Las directivas son la herramienta que ofrece Vue para poder manipular el DOM y para poder hacerlo de forma
       declarativa.</p>
+    <br>
+    <div class="row">
+      <div class="col">
+        <input type="text" name="color" id="" v-model="changePercent">
+        <p>Input que cambia el valor para la variable 'changePercent'</p>
+      </div>
+      <div class="col">
+        <input type="text" name="color" id="" v-model="price">
+        <p>Input que cambia el valor para la variable 'price'</p>
+      </div>
+    </div>
+    <br>
     <table class="table">
       <thead class="thead-dark">
         <tr>
@@ -55,9 +67,11 @@
       </tr>
       <tr>
         <td> Usando v-bind para cambio de clases con Objetos</td>
-        <td> v-bind:class="{orange: changePercent === price, red: changePercent < price, green: changePercent > price}"</td>
+        <td> v-bind:class="{orange: changePercent === price, red: changePercent < price, green: changePercent> price}"
+        </td>
         <td>
-          <p v-bind:class="{orange: changePercent === price, red: changePercent < price, green: changePercent > price}">Clases en tiempo real</p>
+          <p v-bind:class="{orange: changePercent === price, red: changePercent < price, green: changePercent > price}">
+            Clases en tiempo real</p>
         </td>
       </tr>
       <tr>
@@ -68,7 +82,15 @@
           <p>Ingerese un Hexadecimal para cambiar el color de fondo.</p>
         </td>
       </tr>
-
+      <tr>
+        <td>v-model</td>
+        <td>Crea un enlace bidireccional (two way binding) en un elemento de formulario o componente.</td>
+        <td>v-model="inputText"</td>
+        <td>
+          <input type="text" name="color" id="" v-model="inputText" placeholder="Ingrese datos a inputText">
+          <p>La variable 'inputText' es igual a: {{inputText}}</p>
+        </td>
+      </tr>
       <tr>
         <td>v-if</td>
         <td>Construye o destruye un elemento de acuerdo a la condición dada.</td>
